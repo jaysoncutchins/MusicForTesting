@@ -152,14 +152,13 @@ public class Menu {
 
 
     private void removeComposition() {
-        Singer singer = promptAndGetSinger();
-        if (singer == null) {
+        Object[] result = promptAndGetSingerAndComposition();
+        if (result == null) {
             return;
         }
-        Composition composition = promptAndGetComposition(singer);
-        if (composition == null) {
-            return;
-        }
+        Singer singer = (Singer) result[0];
+        Composition composition = (Composition) result[1];
+        
         singer.removeComposition(composition.getTitle());
         System.out.println("Composition removed.");
         promptSave();
