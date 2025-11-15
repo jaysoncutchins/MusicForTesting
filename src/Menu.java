@@ -81,6 +81,23 @@ public class Menu {
     }
 
 
+    /**
+     * Helper method to get both singer and composition with null checks.
+     * @return an array where [0] is Singer and [1] is Composition, or null if either is not found
+     */
+    private Object[] promptAndGetSingerAndComposition() {
+        Singer singer = promptAndGetSinger();
+        if (singer == null) {
+            return null;
+        }
+        Composition composition = promptAndGetComposition(singer);
+        if (composition == null) {
+            return null;
+        }
+        return new Object[]{singer, composition};
+    }
+
+
     private void promptSave() {
         System.out.print("Would you like to save this update to JSON? (Y/N): ");
         String input = scanner.nextLine();
@@ -150,14 +167,11 @@ public class Menu {
 
 
     private void addInstrument() {
-        Singer singer = promptAndGetSinger();
-        if (singer == null) {
+        Object[] result = promptAndGetSingerAndComposition();
+        if (result == null) {
             return;
         }
-        Composition composition = promptAndGetComposition(singer);
-        if (composition == null) {
-            return;
-        }
+        Composition composition = (Composition) result[1];
 
         System.out.print("Instrument name: ");
         String name = scanner.nextLine();
@@ -174,14 +188,12 @@ public class Menu {
 
 
     private void removeInstrument() {
-        Singer singer = promptAndGetSinger();
-        if (singer == null) {
+        Object[] result = promptAndGetSingerAndComposition();
+        if (result == null) {
             return;
         }
-        Composition composition = promptAndGetComposition(singer);
-        if (composition == null) {
-            return;
-        }
+        Composition composition = (Composition) result[1];
+        
         System.out.print("Instrument name: ");
         String name = scanner.nextLine();
 
@@ -192,14 +204,12 @@ public class Menu {
 
 
     private void updateCompositionGenre() {
-        Singer singer = promptAndGetSinger();
-        if (singer == null) {
+        Object[] result = promptAndGetSingerAndComposition();
+        if (result == null) {
             return;
         }
-        Composition composition = promptAndGetComposition(singer);
-        if (composition == null) {
-            return;
-        }
+        Composition composition = (Composition) result[1];
+        
         System.out.print("Enter the new genre: ");
         String genre = scanner.nextLine();
 
