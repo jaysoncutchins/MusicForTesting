@@ -1,7 +1,7 @@
 public class Instrument {
-    private String name;
-    private String type;
-    private String style;
+    private final String name;
+    private final String type;
+    private final String style;
 
 
     public Instrument(String name, String type, String style) {

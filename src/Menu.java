@@ -29,7 +29,15 @@ public class Menu {
             System.out.println("14. Exit");
 
             System.out.print("\nSelect an option from the list: ");
-            int choice = Integer.parseInt(scanner.nextLine());
+            
+            int choice;
+            try {
+                choice = Integer.parseInt(scanner.nextLine());
+            } catch (NumberFormatException e) {
+                System.out.println("Invalid input. Please enter a number.");
+                continue;
+            }
+            
             System.out.println();
 
             switch (choice) {
@@ -48,6 +56,7 @@ public class Menu {
                 case 13 -> searchCompositions();
                 case 14 -> {
                     System.out.println("Exiting system...");
+                    scanner.close();
                     return;
                 }
                 default -> System.out.println("Invalid choice. Please try again.");
