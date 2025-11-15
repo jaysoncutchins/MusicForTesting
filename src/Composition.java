@@ -18,12 +18,7 @@ public class Composition {
 
 
     public void removeInstrument(String name) {
-        for (Instrument instrument : instruments) {
-            if (instrument.getName().equals(name)) {
-                instruments.remove(instrument);
-                return;
-            }
-        }
+        instruments.removeIf(instrument -> instrument.getName().equals(name));
     }
 
 
@@ -40,17 +35,17 @@ public class Composition {
     @Override
     public String toString() {
         int size = instruments.size();
-        String outputString = "Title: " + title + "\n" +
+        StringBuilder outputString = new StringBuilder("Title: " + title + "\n" +
                 "Genre: " + genre + "\n" +
-                "Instrument count: " + size + "\n";
+                "Instrument count: " + size + "\n");
 
         if (size >= 1) {
-            outputString += "Intruments:\n";
+            outputString.append("Intruments:\n");
             for (Instrument instrument : instruments) {
-                outputString += instrument + "\n";
+                outputString.append(instrument).append("\n");
             }
         }
-        return outputString;
+        return outputString.toString();
 
     }
 
