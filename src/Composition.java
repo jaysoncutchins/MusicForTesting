@@ -37,12 +37,23 @@ public class Composition {
 
 
     public void setGenre(String genre) {
+        if (genre == null || genre.trim().isEmpty()) {
+            throw new IllegalArgumentException("Genre cannot be null or empty");
+        }
         this.genre = genre;
     }
 
 
     public String getTitle() {
         return title;
+    }
+
+    public String getGenre() {
+        return genre;
+    }
+
+    public int getInstrumentCount() {
+        return instruments.size();
     }
 
 
