@@ -1,9 +1,12 @@
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 public class Singer {
     private String name;
     private String id;
     private ArrayList<Composition> compositions = new ArrayList<>();
+    private Map<String, Composition> compositionIndex = new HashMap<>();
 
     
     public Singer(String id, String name) {
@@ -14,16 +17,12 @@ public class Singer {
 
     public void addComposition(Composition composition) {
         compositions.add(composition);
+        compositionIndex.put(composition.getTitle().toLowerCase(), composition);
     }
 
 
     public Composition getComposition(String title) {
-        for (Composition composition : compositions) {
-            if (composition.getTitle().equalsIgnoreCase(title)) {
-                return composition;
-            }
-        }
-        return null;
+        return compositionIndex.get(title.toLowerCase());
     }
 
 
@@ -33,6 +32,7 @@ public class Singer {
             return;
         }
         compositions.remove(composition);
+        compositionIndex.remove(title.toLowerCase());
     }
 
 
