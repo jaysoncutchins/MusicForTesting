@@ -1,9 +1,9 @@
 import java.util.ArrayList;
 
 public class Composition {
-    private String title;
+    private final String title;
     private String genre;
-    private ArrayList<Instrument> instruments = new ArrayList<>();
+    private final ArrayList<Instrument> instruments = new ArrayList<>();
 
     
     public Composition(String title, String genre) {
@@ -40,18 +40,18 @@ public class Composition {
     @Override
     public String toString() {
         int size = instruments.size();
-        String outputString = "Title: " + title + "\n" +
-                "Genre: " + genre + "\n" +
-                "Instrument count: " + size + "\n";
+        StringBuilder sb = new StringBuilder();
+        sb.append("Title: ").append(title).append("\n")
+          .append("Genre: ").append(genre).append("\n")
+          .append("Instrument count: ").append(size).append("\n");
 
         if (size >= 1) {
-            outputString += "Intruments:\n";
+            sb.append("Instruments:\n");
             for (Instrument instrument : instruments) {
-                outputString += instrument + "\n";
+                sb.append(instrument).append("\n");
             }
         }
-        return outputString;
-
+        return sb.toString();
     }
 
 }

@@ -3,6 +3,15 @@ import java.util.Scanner;
 
 public class Menu {
 
+    private static final String MENU_HEADER = "\n--------------- Singer Database system ---------------";
+    private static final String INVALID_INPUT_MESSAGE = "Invalid input. Please enter a number.";
+    private static final String INVALID_CHOICE_MESSAGE = "Invalid choice. Please try again.";
+    private static final String SINGER_NOT_FOUND_MESSAGE = "Singer not found.";
+    private static final String COMPOSITION_NOT_FOUND_MESSAGE = "Composition not found.";
+    private static final String SAVE_PROMPT = "Would you like to save this update to JSON? (Y/N): ";
+    private static final String CHANGES_SAVED_MESSAGE = "Changes saved.";
+    private static final String EXITING_MESSAGE = "Exiting system...";
+    
     private final Scanner scanner = new Scanner(System.in);
     private final Database db = new Database();
     
@@ -12,7 +21,7 @@ public class Menu {
 
     public void runMenu() {
         while (true) {
-            System.out.println("\n--------------- Singer Database system ---------------");
+            System.out.println(MENU_HEADER);
             System.out.println("1. Add singer to database");
             System.out.println("2. Remove singer from database");
             System.out.println("3. Assign composition to singer");
@@ -29,7 +38,15 @@ public class Menu {
             System.out.println("14. Exit");
 
             System.out.print("\nSelect an option from the list: ");
-            int choice = Integer.parseInt(scanner.nextLine());
+            
+            int choice;
+            try {
+                choice = Integer.parseInt(scanner.nextLine());
+            } catch (NumberFormatException e) {
+                System.out.println(INVALID_INPUT_MESSAGE);
+                continue;
+            }
+            
             System.out.println();
 
             switch (choice) {
@@ -47,10 +64,11 @@ public class Menu {
                 case 12 -> sortCompositions();
                 case 13 -> searchCompositions();
                 case 14 -> {
-                    System.out.println("Exiting system...");
+                    System.out.println(EXITING_MESSAGE);
+                    scanner.close();
                     return;
                 }
-                default -> System.out.println("Invalid choice. Please try again.");
+                default -> System.out.println(INVALID_CHOICE_MESSAGE);
             }
         }
     }
@@ -62,7 +80,7 @@ public class Menu {
         String id = scanner.nextLine();
         Singer singer = db.getSinger(id);
         if (singer == null) {
-            System.out.println("Singer not found.");
+            System.out.println(SINGER_NOT_FOUND_MESSAGE);
             return null;
         }
         return singer;
@@ -74,7 +92,7 @@ public class Menu {
         String title = scanner.nextLine();
         Composition composition = singer.getComposition(title);
         if (composition == null) {
-            System.out.println("Composition not found.");
+            System.out.println(COMPOSITION_NOT_FOUND_MESSAGE);
             return null;
         }
         return composition;
@@ -82,12 +100,12 @@ public class Menu {
 
 
     private void promptSave() {
-        System.out.print("Would you like to save this update to JSON? (Y/N): ");
+        System.out.print(SAVE_PROMPT);
         String input = scanner.nextLine();
 
         if (input.equalsIgnoreCase("Y")) {
             saveDatabaseToJson();
-            System.out.println("Changes saved.");
+            System.out.println(CHANGES_SAVED_MESSAGE);
         }
     }
 

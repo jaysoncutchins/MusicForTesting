@@ -1,9 +1,9 @@
 import java.util.ArrayList;
 
 public class Singer {
-    private String name;
-    private String id;
-    private ArrayList<Composition> compositions = new ArrayList<>();
+    private final String name;
+    private final String id;
+    private final ArrayList<Composition> compositions = new ArrayList<>();
 
     
     public Singer(String id, String name) {
@@ -37,7 +37,7 @@ public class Singer {
 
 
     public ArrayList<Composition> getCompositions() {
-        return compositions;
+        return new ArrayList<>(compositions);
     }
 
 
