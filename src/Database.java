@@ -47,6 +47,19 @@ public class Database implements SearchAndSort {
         this.singers = newList;
     }
 
+
+    /**
+     * Helper method to swap two compositions in an ArrayList.
+     * @param compositions the list containing the compositions
+     * @param i the index of the first composition
+     * @param j the index of the second composition
+     */
+    private void swap(ArrayList<Composition> compositions, int i, int j) {
+        Composition temp = compositions.get(i);
+        compositions.set(i, compositions.get(j));
+        compositions.set(j, temp);
+    }
+
     // //bubble sort
     // @Override
     // public void sortCompositions(ArrayList<Composition> compositions) {
@@ -60,9 +73,7 @@ public class Database implements SearchAndSort {
 
     //             //if ele at j is bigger than its neighbor, swap
     //             if (compositions.get(j).getTitle().compareToIgnoreCase(compositions.get(j + 1).getTitle()) > 0) {
-    //                 Composition temp = compositions.get(j);
-    //                 compositions.set(j, compositions.get(j + 1));
-    //                 compositions.set(j + 1, temp);
+    //                 swap(compositions, j, j + 1);
     //             }
     //         }
     //     }
@@ -84,9 +95,7 @@ public class Database implements SearchAndSort {
                 //check if element at j is smaller than the preceeding element
                 if (compositions.get(j).getTitle().compareToIgnoreCase(compositions.get(j - 1).getTitle()) < 0) {
                     //if so, swap
-                    Composition temp = compositions.get(j);
-                    compositions.set(j, compositions.get(j - 1));
-                    compositions.set(j - 1, temp);
+                    swap(compositions, j, j - 1);
                 }
             }
         }
@@ -113,9 +122,7 @@ public class Database implements SearchAndSort {
     //         }
     //         //if min has changed, we found a new smallest value, so swap into place
     //         if (min != i) {
-    //             Composition tmp = compositions.get(i);
-    //             compositions.set(i, compositions.get(min));
-    //             compositions.set(min, tmp);
+    //             swap(compositions, i, min);
     //         }
     //     }
     // }
@@ -164,18 +171,23 @@ public class Database implements SearchAndSort {
     //         }
     //     }
     //     //add remaining elements back that didn't get added in the while loop because one list was emptied
-    //     while (i < left.size()) {
-    //         merged.add(left.get(i));
-    //         i++;
-    //     }
-    //     while (j < right.size()) {
-    //         merged.add(right.get(j));
-    //         j++;
-    //     }
+    //     addRemaining(merged, left, i);
+    //     addRemaining(merged, right, j);
+    //     
     //     //overwrite the original list
     //     compositions.clear();
-    //     for (Composition composition : merged) {
-    //         compositions.add(composition);
+    //     compositions.addAll(merged);
+    // }
+
+    // /**
+    //  * Helper method to add remaining elements from a list to the merged list.
+    //  * @param merged the list being constructed
+    //  * @param source the source list
+    //  * @param startIndex the index to start from
+    //  */
+    // private void addRemaining(ArrayList<Composition> merged, ArrayList<Composition> source, int startIndex) {
+    //     while (startIndex < source.size()) {
+    //         merged.add(source.get(startIndex++));
     //     }
     // }
 
