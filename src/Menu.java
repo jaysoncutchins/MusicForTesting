@@ -5,9 +5,6 @@ public class Menu {
 
     private final Scanner scanner = new Scanner(System.in);
     private final Database db = new Database();
-    
-    //set to true if you're going to use binary search, false if you're going to use linear search
-    private static final boolean USE_BINARY_SEARCH = true;
 
 
     public void runMenu() {
@@ -262,9 +259,8 @@ public class Menu {
 
         ArrayList<Composition> compositions = singer.getCompositions();
 
-        if (USE_BINARY_SEARCH) { //we have to sort the list first if we're using binary search
-            db.sortCompositions(compositions);
-        }
+        // Binary search requires sorted list, so we always sort first
+        db.sortCompositions(compositions);
 
         Composition composition = db.searchComposition(compositions, key);
         if (composition == null) {

@@ -7,12 +7,21 @@ public class Singer {
 
     
     public Singer(String id, String name) {
+        if (id == null || id.trim().isEmpty()) {
+            throw new IllegalArgumentException("ID cannot be null or empty");
+        }
+        if (name == null || name.trim().isEmpty()) {
+            throw new IllegalArgumentException("Name cannot be null or empty");
+        }
         this.id = id;
         this.name = name;
     }
 
 
     public void addComposition(Composition composition) {
+        if (composition == null) {
+            throw new IllegalArgumentException("Composition cannot be null");
+        }
         compositions.add(composition);
     }
 
@@ -37,7 +46,7 @@ public class Singer {
 
 
     public ArrayList<Composition> getCompositions() {
-        return compositions;
+        return new ArrayList<>(compositions);
     }
 
 
@@ -63,5 +72,18 @@ public class Singer {
         for (Composition composition : compositions) {
             System.out.println(composition);
         }
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) return true;
+        if (obj == null || getClass() != obj.getClass()) return false;
+        Singer singer = (Singer) obj;
+        return id.equals(singer.id);
+    }
+
+    @Override
+    public int hashCode() {
+        return id.hashCode();
     }
 }
