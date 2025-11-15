@@ -17,12 +17,10 @@ public class JSONReadAndWrite {
     public static ArrayList<Singer> readFromFile() {
         ArrayList<Singer> singers = new ArrayList<>();
 
-        try {
-            BufferedReader reader = new BufferedReader(new FileReader(FILE_NAME));
+        try (BufferedReader reader = new BufferedReader(new FileReader(FILE_NAME))) {
             Type listType = new TypeToken<ArrayList<Singer>>() {
             }.getType();
             singers = gson.fromJson(reader, listType);
-            reader.close();
         } 
         catch (IOException e) {
             System.err.println(e);
@@ -35,10 +33,8 @@ public class JSONReadAndWrite {
     public static void writeToFile(ArrayList<Singer> singers) {
         String jsonStr = gson.toJson(singers);
 
-        try {
-            FileWriter writer = new FileWriter(FILE_NAME);
+        try (FileWriter writer = new FileWriter(FILE_NAME)) {
             writer.write(jsonStr);
-            writer.close();
         } 
         catch (IOException e) {
             System.err.println(e);

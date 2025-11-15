@@ -7,12 +7,21 @@ public class Composition {
 
     
     public Composition(String title, String genre) {
+        if (title == null || title.trim().isEmpty()) {
+            throw new IllegalArgumentException("Title cannot be null or empty");
+        }
+        if (genre == null || genre.trim().isEmpty()) {
+            throw new IllegalArgumentException("Genre cannot be null or empty");
+        }
         this.title = title;
         this.genre = genre;
     }
 
 
     public void addInstrument(Instrument instrument) {
+        if (instrument == null) {
+            throw new IllegalArgumentException("Instrument cannot be null");
+        }
         instruments.add(instrument);
     }
 
@@ -28,12 +37,23 @@ public class Composition {
 
 
     public void setGenre(String genre) {
+        if (genre == null || genre.trim().isEmpty()) {
+            throw new IllegalArgumentException("Genre cannot be null or empty");
+        }
         this.genre = genre;
     }
 
 
     public String getTitle() {
         return title;
+    }
+
+    public String getGenre() {
+        return genre;
+    }
+
+    public int getInstrumentCount() {
+        return instruments.size();
     }
 
 
@@ -45,13 +65,26 @@ public class Composition {
                 "Instrument count: " + size + "\n";
 
         if (size >= 1) {
-            outputString += "Intruments:\n";
+            outputString += "Instruments:\n";
             for (Instrument instrument : instruments) {
                 outputString += instrument + "\n";
             }
         }
         return outputString;
 
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) return true;
+        if (obj == null || getClass() != obj.getClass()) return false;
+        Composition that = (Composition) obj;
+        return title.equals(that.title);
+    }
+
+    @Override
+    public int hashCode() {
+        return title.hashCode();
     }
 
 }
