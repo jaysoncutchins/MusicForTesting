@@ -1,0 +1,318 @@
+[
+  {
+    "name": "Geddy Lee",
+    "id": "Rush",
+    "compositions": [
+      {
+        "title": "Tom Sawyer",
+        "genre": "progressive rock",
+        "instruments": [
+          {
+            "name": "vocals",
+            "type": "voice",
+            "style": "rock"
+          },
+          {
+            "name": "electric guitar",
+            "type": "guitar",
+            "style": "distorted"
+          },
+          {
+            "name": "bass",
+            "type": "bass",
+            "style": "melodic"
+          },
+          {
+            "name": "drums",
+            "type": "percussion",
+            "style": "technical"
+          }
+        ]
+      },
+      {
+        "title": "Limelight",
+        "genre": "progressive rock",
+        "instruments": [
+          {
+            "name": "vocals",
+            "type": "voice",
+            "style": "clean"
+          },
+          {
+            "name": "electric guitar",
+            "type": "guitar",
+            "style": "riff-driven"
+          }
+        ]
+      },
+      {
+        "title": "Subdivisions",
+        "genre": "progressive rock",
+        "instruments": [
+          {
+            "name": "synthesizer",
+            "type": "keyboard",
+            "style": "80s"
+          },
+          {
+            "name": "drums",
+            "type": "percussion",
+            "style": "precise"
+          }
+        ]
+      },
+      {
+        "title": "YYZ",
+        "genre": "instrumental rock",
+        "instruments": [
+          {
+            "name": "bass",
+            "type": "bass",
+            "style": "lead"
+          },
+          {
+            "name": "electric guitar",
+            "type": "guitar",
+            "style": "instrumental"
+          },
+          {
+            "name": "drums",
+            "type": "percussion",
+            "style": "complex"
+          }
+        ]
+      },
+      {
+        "title": "The Spirit of Radio",
+        "genre": "rock",
+        "instruments": [
+          {
+            "name": "vocals",
+            "type": "voice",
+            "style": "rock"
+          },
+          {
+            "name": "electric guitar",
+            "type": "guitar",
+            "style": "bright"
+          }
+        ]
+      },
+      {
+        "title": "La Villa Strangiato",
+        "genre": "progressive rock",
+        "instruments": []
+      }
+    ]
+  },
+  {
+    "name": "Jack Stratton",
+    "id": "Vulfpeck",
+    "compositions": [
+      {
+        "title": "Dean Town",
+        "genre": "funk",
+        "instruments": [
+          {
+            "name": "bass",
+            "type": "bass",
+            "style": "lead funk"
+          },
+          {
+            "name": "drums",
+            "type": "percussion",
+            "style": "tight"
+          }
+        ]
+      },
+      {
+        "title": "Back Pocket",
+        "genre": "soul/funk",
+        "instruments": [
+          {
+            "name": "vocals",
+            "type": "voice",
+            "style": "harmonies"
+          },
+          {
+            "name": "rhodes",
+            "type": "keyboard",
+            "style": "warm"
+          }
+        ]
+      },
+      {
+        "title": "Wait for the Moment",
+        "genre": "soul",
+        "instruments": [
+          {
+            "name": "vocals",
+            "type": "voice",
+            "style": "soft"
+          },
+          {
+            "name": "piano",
+            "type": "keyboard",
+            "style": "ballad"
+          }
+        ]
+      },
+      {
+        "title": "Animal Spirits",
+        "genre": "funk",
+        "instruments": [
+          {
+            "name": "bass",
+            "type": "bass",
+            "style": "groovy"
+          }
+        ]
+      },
+      {
+        "title": "Cory Wong",
+        "genre": "instrumental funk",
+        "instruments": [
+          {
+            "name": "rhythm guitar",
+            "type": "guitar",
+            "style": "staccato"
+          }
+        ]
+      },
+      {
+        "title": "Funky Duck",
+        "genre": "funk",
+        "instruments": []
+      }
+    ]
+  },
+  {
+    "name": "Stefan Burnett",
+    "id": "Death Grips",
+    "compositions": [
+      {
+        "title": "Get Got",
+        "genre": "experimental hip hop",
+        "instruments": [
+          {
+            "name": "vocals",
+            "type": "voice",
+            "style": "aggressive"
+          },
+          {
+            "name": "drum machine",
+            "type": "percussion",
+            "style": "glitchy"
+          }
+        ]
+      },
+      {
+        "title": "I've Seen Footage",
+        "genre": "experimental hip hop",
+        "instruments": [
+          {
+            "name": "sampler",
+            "type": "electronic",
+            "style": "looped"
+          }
+        ]
+      },
+      {
+        "title": "Takyon (Death Yon)",
+        "genre": "noise rap",
+        "instruments": [
+          {
+            "name": "noise synth",
+            "type": "electronic",
+            "style": "harsh"
+          },
+          {
+            "name": "drums",
+            "type": "percussion",
+            "style": "pounding"
+          }
+        ]
+      },
+      {
+        "title": "Hacker",
+        "genre": "industrial hip hop",
+        "instruments": []
+      },
+      {
+        "title": "No Love",
+        "genre": "industrial hip hop",
+        "instruments": [
+          {
+            "name": "synth",
+            "type": "electronic",
+            "style": "dark"
+          }
+        ]
+      },
+      {
+        "title": "On GP",
+        "genre": "experimental rock",
+        "instruments": []
+      }
+    ]
+  },
+  {
+    "name": "Wyatt Shears",
+    "id": "The Garden",
+    "compositions": [
+      {
+        "title": "Vexation",
+        "genre": "experimental rock",
+        "instruments": [
+          {
+            "name": "bass",
+            "type": "bass",
+            "style": "fuzzy"
+          },
+          {
+            "name": "drums",
+            "type": "percussion",
+            "style": "loose"
+          }
+        ]
+      },
+      {
+        "title": "Thy Mission",
+        "genre": "alternative",
+        "instruments": [
+          {
+            "name": "vocals",
+            "type": "voice",
+            "style": "duo"
+          }
+        ]
+      },
+      {
+        "title": "All Smiles Over Here :>",
+        "genre": "experimental",
+        "instruments": []
+      },
+      {
+        "title": "Call This # Now",
+        "genre": "punk",
+        "instruments": [
+          {
+            "name": "bass",
+            "type": "bass",
+            "style": "distorted"
+          }
+        ]
+      },
+      {
+        "title": "Egg",
+        "genre": "experimental punk",
+        "instruments": []
+      },
+      {
+        "title": "Clay",
+        "genre": "alternative rock",
+        "instruments": []
+      }
+    ]
+  }
+]
